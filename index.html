@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordPress</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<style>body { font-size: 12pt; background: #E7E7E7; } .container { background: #fff; padding: 50px; max-width: 800px; margin: 50px auto !important; }</style>
+</head>
+<body><div class="container">
+
+<center><img src="http://ulbra-to.br/encena/templates/default/images/logo-fabrica.png" alt="" style="width: auto; height: 60px;"><br><br>FÁBRICA DE SOFTWARE</center>
+
+<h1 id="mini-curso-wordpress" style="text-align: center; margin: 300px auto !important;"><strong>MINI CURSO WORDPRESS</strong></h1>
+
+<h2 id="introdução">Introdução</h2>
+
+<p>O Wordpress.org deve ser instalado em uma hospedagem própria e usar um domínio próprio para ficar disponível.</p>
+
+<p>As vantagens do WordPress instalado são inúmeras, e a melhor vantagem é que não existem restrições para instalar temas e plugins. Ou seja, é possível desenvolver um tema ou plugin para suprir as necessidades do site.</p>
+
+<p><br><br><br></p>
+
+<h2 id="instalação">Instalação</h2>
+
+<p>Primeiramente, baixe a versão mais recente do WordPress em português do Brasil <a href="https://br.wordpress.org/">neste link</a>.</p>
+
+<p>Após fazer o download, extraia os arquivos para o diretório que o WordPress ficará instalado.</p>
+
+<p>O próximo passo é criar uma base de dados. O WordPress usava somente banco de dados MySQL.</p>
+
+<h3 id="criando-um-banco-de-dados-mysql-localmente">Criando um banco de dados MySQL localmente</h3>
+
+<p>O XAMPP possui o MySQL instalado. No painel do XAMPP, inicie o MySQL se ele não estiver iniciado.</p>
+
+<p>Após iniciado, vá para <a href="http://localhost:8080/phpmyadmin/">http://localhost:8080/phpmyadmin/</a> ou <a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a>.</p>
+
+<p>Clique em <strong>Utizadores</strong> na barra de menu do topo, em seguida <strong>Adicionar utilizador</strong>. Preencha todas as informações de login e atente-se aos três itens:</p>
+
+<ul>
+<li>Na opção <em>Máquina</em>, selecione local;</li>
+<li>Na opção <em>Database for user</em>, selecione “Create database with same name and grant all privileges”;</li>
+<li>Na opção <em>Privilégios Globais</em>, selecione Todos.</li>
+</ul>
+
+<h3 id="instalando-o-wordpress">Instalando o WordPress</h3>
+
+<p>Criado o banco de dados, acesse pelo navegador o endereço com o nome do diretório, no meu exemplo é <a href="http://localhost:8080/wordpress/">http://localhost:8080/wordpress/</a>.</p>
+
+<p>Agora você está pronto para a “famosa instalação de 5 minutos”. Avance a tela até chegar na parte de preencher os dados.</p>
+
+<p>Primeiro conecte-se ao banco de dados utilizando as informações de login criadas anteriormente.</p>
+
+<p>Por fim, preencha informações refente ao login do administrador do site e informações do site.</p>
+
+<p>Você acabou de terminar a “famosa instalação de 5 minutos” do WordPress que não leva metade desse tempo.</p>
+
+<p><br><br><br></p>
+
+<h2 id="personalização">Personalização</h2>
+
+<p>Agora o site está funcionado e tudo está ok. O próximo passo é desenvolver um tema próprio, instalar os plugins necessários ou até fazer seu próprio plugin.</p>
+
+<h2 id="temas">Temas</h2>
+
+<p>Para começar um tema para o Wordpress você precisa, de pelo menos, a seguinte estrutura:</p>
+
+<ul>
+<li>index.php (Modelo da página inicial)</li>
+<li>header.php (Modelo do topo, sempre onde a tag head estará para definir as meta, estilos, importações)</li>
+<li>sidebar.php (Modelo geralmente para a coluna lateral; É possível também habilitar os Widgets que possibilitarão adicionar coisas à lateral sem usar código e encher este template com linhas de código manualmente)</li>
+<li>footer.php (Modelo que finalizará todo o HTML)</li>
+<li>single.php (Modelo usado para exibir a postagem)</li>
+<li>page.php (Modelo usado para exibir uma página)</li>
+<li>functions.php (Todas as funções PHP que o tema usa devem estar aqui, por exemplo, a função para habilitar <em>thumbnails</em> nos posts)</li>
+<li>style.css (Estilo principal do tema)</li>
+</ul>
+
+<p>Há outros modelos de templates que são usados para complementar um tema, tais como <em>comments.php</em> (serve para o modelo dos comentários nos posts e páginas), <em>archive.php</em> (modelo para mostrar de forma diferenciada os resultados de uma categoria, tag, post por autor), <em>404.php</em> (modelo de página de ERROR 404 personalizada), entre outros.</p>
+
+<p>Existem vários temas prontos e temas base (para começar praticamente do zero). Atualmente, indico o Underscores, pois já está usando o HTML5, tem comentários nos templates (em inglês) e está sob licença GPL (Licença Pública Geral).</p>
+
+<p>O Underscores é um tema para ser usado como tema pai, por isso devemos criar um tema filho para modificá-lo e não mexer em seu “núcleo”.</p>
+
+<h3 id="temas-filhos">Temas Filhos</h3>
+
+<p>O tema filho é um tema que herda a funcionalidade de um outro, chamado tema pai, que permite modificar e/ou acrescentar funcionalidades e estilos do tema principal sem modificá-lo.</p>
+
+<p>Criar um tema filho é a maneira mais recomendada de fazer modificações em um tema.</p>
+
+<p>Para criar um tema filho, crie um diretório novo. É recomendado que você acrescente “-child” no final do diretório, principalmente para organização. Por exemplo: underscores-child.</p>
+
+<p>O que diferenciará o tema filho do tema pai será o arquivo style.css, que deverá conter:</p>
+
+<pre><code>/*
+Theme Name:     Underscores Child
+Theme URI:      http://underscores.me/
+Author:         Automattic
+Author URI:     http://automattic.com/
+Version:        1.0.0
+Template:       underscores
+*/
+
+@import url("../underscores/style.css");
+</code></pre>
+
+<p>É importante indicar o template pai e fazer a importação do estilo do tema pai e que esta importação fique acima de todo o código CSS que será inserido no arquivo (para não anular a importação do estilo do tema pai).</p>
+
+<p>Agora é só acrescentar novas funções, editar ou alterar templates e depois de tudo pronto começar a publicar conteúdos no site.</p>
+
+<p><br><br><br></p>
+
+<h2 id="dica">Dica</h2>
+
+<p>O WordPress.org possui um manual muito rico, disponível para todos os usuários, voltado para desenvolvedores. O WordPress Codex está disponível no endereço <a href="http://codex.wordpress.org/">http://codex.wordpress.org/</a> (em inglês).</p>
+
+<p>Alguns outros sites também são muito úteis e em português brasileiro, como o <a href="http://www.escolawp.com/">http://www.escolawp.com/</a> e o <a href="http://tableless.com.br/cms-2/wordpress/">http://tableless.com.br/cms-2/wordpress/</a>.</p></div></body>
+</html>
